@@ -4,20 +4,63 @@
   <style>
     body{
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #8BC6EC;
+background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+      padding: 50px;
+      gap: 30px;
     }
+  
+
 </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
 </head>
 <body>
+
   <h1>URL Shortener</h1>
-  <div>
-    <form>
+
+  <div class="form-container">
+    <form method="POST" action="/url">
       <label>Enter Your Original URL</label>
-      <input type="text" name="redirectURL" placeholder="http://example.com">
+      <input 
+      type="text" 
+      name="url" 
+      placeholder="http://example.com">
+
       <button type="submit">Generate</button>
+
+      <% if (locals.id) { %>
+        <p>URL Generated: http://localhost:8004/url/<%= id %></p>
+      <% } %>
     </form>
+  </div>
+  <div class="analytics">
+    <% if (locals.urls) { %>
+      <table>
+        <thead>
+          <th>S.No</th>
+          <th>ShortID</th>
+          <th>Redirect</th>
+          <th>Clicks</th>
+        </thead>
+        <tbody>
+          <% urls.forEach((url,index) => { %>
+
+            <tr>
+            <td><%= index+1 %></td>
+            <td><%= url.shortId %></td>
+            <td><%= url.redirectURL %></td>
+            <td><%= url.visitHistory.length %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
   </div>
 </body>
 </html>

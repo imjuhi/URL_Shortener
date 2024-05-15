@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body{
+      width: 100vw;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #8BC6EC;
+background-image: linear-gradient(135deg, #8BC6EC 0%, #b0d5e6 100%);
+      padding: 50px;
+      gap: 30px;
+    }
+    .card{
+      border:solid black 1px;
+      min-width: 20%;
+      height: 30%;
+      border-radius: 5px;
+      /* From https://css.glass */
+background: rgba(255, 255, 255, 0.23);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+    .card-body{
+      width: 100%;
+      height: 100%
+    }
+    .form-container{
+      height: 100%;
+      width: 100%;
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      color: black;
+    }
+</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+</head>
+<body>
+  <h1>Signup</h1>
+
+  <div class="card">
+    <div class="card-body">
+      <form class="form-container" action ="/user" method="post">
+        <div>
+          <label>Full Name</label>
+        <input type="text" required name="name">
+        </div>
+        <div><label>Email</label>
+          <input type="text" required name="email"></div>
+        <div> <label>Password</label>
+          <input type="text" required name="password"></div>
+        <div> <button type="submit">Signup</button></div>
+      </form>    </div>
+  </div>
+
+</body>
+</html>
